@@ -76,9 +76,9 @@ class User implements UserInterface
     private $borrows;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupShare", mappedBy="user")
      */
-    private $groups;
+    private $groupShares;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Member", mappedBy="user", orphanRemoval=true)
@@ -99,7 +99,7 @@ class User implements UserInterface
     {
         $this->articles = new ArrayCollection();
         $this->borrows = new ArrayCollection();
-        $this->groups = new ArrayCollection();
+        $this->groupShares = new ArrayCollection();
         $this->members = new ArrayCollection();
         $this->messagesFrom = new ArrayCollection();
         $this->messagesTo = new ArrayCollection();
@@ -318,30 +318,30 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|GroupShare[]
      */
-    public function getGroups(): Collection
+    public function getGroupShares(): Collection
     {
-        return $this->groups;
+        return $this->groupShares;
     }
 
-    public function addGroup(Group $group): self
+    public function addGroupShare(GroupShare $groupShare): self
     {
-        if (!$this->groups->contains($group)) {
-            $this->groups[] = $group;
-            $group->setUser($this);
+        if (!$this->groupShares->contains($groupShare)) {
+            $this->groupShares[] = $groupShare;
+            $groupShare->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeGroup(Group $group): self
+    public function removeGroupShare(GroupShare $groupShare): self
     {
-        if ($this->groups->contains($group)) {
-            $this->groups->removeElement($group);
+        if ($this->groupShares->contains($groupShare)) {
+            $this->groupShares->removeElement($groupShare);
             // set the owning side to null (unless already changed)
-            if ($group->getUser() === $this) {
-                $group->setUser(null);
+            if ($groupShare->getUser() === $this) {
+                $groupShare->setUser(null);
             }
         }
 

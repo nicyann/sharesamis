@@ -28,10 +28,10 @@ class Member
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="members")
+     * @ORM\ManyToOne(targetEntity="App\Entity\GroupShare", inversedBy="members")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userGroup;
+    private $groupShare;
 
     public function getId(): ?int
     {
@@ -62,14 +62,14 @@ class Member
         return $this;
     }
 
-    public function getUserGroup(): ?Group
+    public function getGroupShare(): ?GroupShare
     {
-        return $this->userGroup;
+        return $this->groupShare;
     }
 
-    public function setUserGroup(?Group $userGroup): self
+    public function setGroupShare(?GroupShare $groupShare): self
     {
-        $this->userGroup = $userGroup;
+        $this->groupShare = $groupShare;
 
         return $this;
     }

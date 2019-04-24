@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GroupShareRepository")
  */
-class Group
+class GroupShare
 {
     /**
      * @ORM\Id()
@@ -34,13 +34,13 @@ class Group
     private $icon;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="groups")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="groupShares")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Member", mappedBy="userGroup", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Member", mappedBy="groupShare", orphanRemoval=true)
      */
     private $members;
 
@@ -114,7 +114,7 @@ class Group
     {
         if (!$this->members->contains($member)) {
             $this->members[] = $member;
-            $member->setUserGroup($this);
+            $member->setGroupShare($this);
         }
 
         return $this;
@@ -125,8 +125,8 @@ class Group
         if ($this->members->contains($member)) {
             $this->members->removeElement($member);
             // set the owning side to null (unless already changed)
-            if ($member->getUserGroup() === $this) {
-                $member->setUserGroup(null);
+            if ($member->getGroupShare() === $this) {
+                $member->setGroupShare(null);
             }
         }
 

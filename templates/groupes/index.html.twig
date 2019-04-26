@@ -3,9 +3,37 @@
 {% block title 'Les groupes' %}
 
 {% block body %}
-    <div class="container mt-4">
+    <div class="container mt-4 main-cadre">
         <h1>Les Groupes sur SharesAmis</h1>
         <p>les principaux groupe avec leurs membres!</p>
+        <div class="row p-row">
+            <div class="col-4 ">
+                <div class="cadre">
+                <h3>
+                    Liste des groupes
+                </h3>
+                <ul>
+                    {% for groupshare in groupshares %}
+                        <li class="listgroup">
+                            {{ groupshare.name }} {{ groupshare.user.firstname }} {{ groupshare.user.lastname }}(({{ groupshare.description }})
+
+                        </li>
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="cadre">
+                <h3>Détail des groupes</h3>
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
+
+
 {% endblock %}

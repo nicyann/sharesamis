@@ -1,12 +1,33 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-
-}
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 h1 {
-  color: blue;
+  color: #F7882F	;
+  font-family: 'Roboto Slab', serif;
 }
 
 .test {
   color: green;
+  font-family: 'Open Sans', sans-serif;
+}
+
+img {
+  width: 100px;
+  height:100px;
+}
+.jumbotron p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+}
+.jumbotron {
+background-color: #6B7A8F;
+}
+.cadre {
+  background-color: #DCC7AA;
+  height: 100%;
+}
+.p-row {
+  height: 400px;
+}
+.main-cadre{
+
 }

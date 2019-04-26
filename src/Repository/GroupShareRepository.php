@@ -18,6 +18,18 @@ class GroupShareRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, GroupShare::class);
     }
+    
+    public function findGroupmember()
+    {
+        $qb = $this->createQueryBuilder('g');
+        
+        $qb = $qb->innerJoin('g.user', 'u');
+            
+        return $qb->getQuery()
+            ->getResult();
+            
+        
+    }
 
     // /**
     //  * @return Group[] Returns an array of Group objects

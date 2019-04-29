@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
- * @Route("/group/share")
+ * @Route("/group")
  */
 class GroupShareController extends AbstractController
 {

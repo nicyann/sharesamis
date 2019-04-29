@@ -3,18 +3,34 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="container mt-4">
+        <div class="mx-auto pb-5 w-form-title">
+
+    <h1>Inscription</h1>
+        </div>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.lastname) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.password) }}
-        {{ form_row(registrationForm.address) }}
-        {{ form_row(registrationForm.phone) }}
-        {{ form_row(registrationForm.city) }}
+        <div class="row">
+            <div class="col-md-6">{{ form_row(registrationForm.firstname)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.lastname)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.email)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.password)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.password)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.address)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.city)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.phone)}}</div>
+        </div>
+        {{ form_rest(registrationForm) }}
+        {#{{ form_row(registrationForm.firstname) }}#}
+        {#{{ form_row(registrationForm.lastname) }}#}
+        {#{{ form_row(registrationForm.email) }}#}
+        {#{{ form_row(registrationForm.password) }}#}
+        {#{{ form_row(registrationForm.address) }}#}
+        {#{{ form_row(registrationForm.phone) }}#}
+        {#{{ form_row(registrationForm.city) }}#}
 
 
-        <button type="submit">Enregistrer</button>
+        <button class="btn btn-primary button-sharesamis " type="submit">Enregistrer</button>
     {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}

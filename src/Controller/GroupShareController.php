@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\GroupShare;
 use App\Form\GroupShareType;
 use App\Repository\GroupShareRepository;
@@ -37,11 +38,11 @@ class GroupShareController extends AbstractController
     /**
      * @Route("/", name="group_share_index", methods={"GET"})
      */
-    public function index(  ): Response
+    public function index(): Response
     {
         $groupshares = $this->repository->findGroupmember();
     
-        return $this->render('groupes/index.html.twig',[
+        return $this->render('group_share/index.html.twig',[
             'current_menu' => 'groups',
             'groupshares' => $groupshares
     
@@ -77,8 +78,13 @@ class GroupShareController extends AbstractController
      */
     public function show(GroupShare $groupShare): Response
     {
+        $groupshares = $this->repository->findGroupmember();
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findByGroupShare($groupShare->getId());
+        
         return $this->render('group_share/show.html.twig', [
-            'group_share' => $groupShare,
+            'groupshares' => $groupshares,
+            'groupshare' => $groupShare,
+            'articles' => $articles,
         ]);
     }
 

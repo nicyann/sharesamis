@@ -18,6 +18,34 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+    
+    
+    
+    /**
+     * @param int $id Id du groupe
+     * @return mixed
+     */
+    public function findByGroupShare(int $id)
+    {
+        $qb = $this->createQueryBuilder('a');
+        
+        $qb = $qb->select('a')
+            ->innerJoin('a.user', 'u')
+            ->innerJoin('u.groupShares', 'g')
+            ->innerJoin('u.members', 'm')
+            ->innerJoin('m.groupShare', 'gm')
+            ->where($qb->expr()->orX(
+                $qb->expr()->andX(
+                    $qb->expr()->eq('m.isValid', true),
+                    $qb->expr()->eq('gm.id', ':id')
+                ),
+                $qb->expr()->eq('g.id', ':id')
+            ))
+            ->setParameter(':id', $id)
+        ;
+        
+        return $qb->getQuery()->getResult();
+    }
 
     // /**
     //  * @return Article[] Returns an array of Article objects

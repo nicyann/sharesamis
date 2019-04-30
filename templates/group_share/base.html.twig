@@ -12,15 +12,27 @@
                 <h3>
                     Liste des groupes
                 </h3>
-                <ul>
+                    <table class="table table-condensed active">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Contact</th>
+                            <th>Date de création</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                     {% for groupshare in groupshares %}
-                        <li class="listgroup">
-                            <a href="{{ path('group_share_show', { 'id': groupshare.id }) }}">
-                                {{ groupshare.name }} {{ groupshare.user.firstname }} {{ groupshare.user.lastname }}(({{ groupshare.description }})
-                            </a>
-                        </li>
+                        <tr>
+
+                            <td><a href="{{ path('group_share_show', { 'id': groupshare.id }) }}">{{ groupshare.name }}</a></td>
+                            <td>{{ groupshare.description}}</td>
+                            <td>{{ groupshare.user.firstname}}</td>
+
+                        </tr>
                     {% endfor %}
-                </ul>
+                        </tbody>
+
+                    </table>
                 </div>
             </div>
 

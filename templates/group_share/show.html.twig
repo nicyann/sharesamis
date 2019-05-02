@@ -10,6 +10,7 @@
         {% for member in groupshare.members %}
             {% if member.isValid %}
                 <li>{{ member.user.lastname }}</li>
+                <img src="{{ asset('uploads/images/users/' ~ member.user.filename )}}">
             {% endif %}
         {% endfor %}
     </ul>

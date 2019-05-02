@@ -22,7 +22,8 @@ class UserFixtures extends Fixture
          $admin->setEmail('yann.nicolle@orange.fr');
          $admin->setFirstname('Yann');
          $admin->setLastname('Nicolle');
-         $admin->setPicture('');
+         $admin->setUpdatedAt(new \DateTime("2018-11-21"));
+         $admin->setFilename('/uploads/images/users/images (3).jpeg');
          $admin->setPassword($this->passwordEncoder->EncodePassword($admin, 'ynicolle') );
          $admin->setRoles(["ROLE_ADMIN"]);
          $admin->setPhone('0673806527');
@@ -39,7 +40,8 @@ class UserFixtures extends Fixture
         $user1->setEmail('mpy.vasnier@orange.fr');
         $user1->setFirstname('Marie');
         $user1->setLastname('Vasnier');
-        $user1->setPicture('');
+        $user1->setUpdatedAt(new \DateTime("2019-04-21"));
+        $user1->setFilename('/uploads/images/users/images (4).jpeg');
         $user1->setPassword($this->passwordEncoder->EncodePassword($admin, 'mpyvasnier') );
         $user1->setRoles(["ROLE_USER"]);
         $user1->setPhone('0770025128');
@@ -54,7 +56,8 @@ class UserFixtures extends Fixture
         $user2->setEmail('p.anatole@ogmail.com');
         $user2->setFirstname('Philippe');
         $user2->setLastname('Anatol');
-        $user2->setPicture('');
+        $user2->setUpdatedAt(new \DateTime("2019-04-23"));
+        $user2->setFilename('/uploads/images/users/images (1).jpeg');
         $user2->setPassword($this->passwordEncoder->EncodePassword($admin, 'panatole') );
         $user2->setRoles(["ROLE_USER"]);
         $user2->setPhone('0770025128');
@@ -69,7 +72,8 @@ class UserFixtures extends Fixture
         $user3->setEmail('j.doe@ogmail.com');
         $user3->setFirstname('John');
         $user3->setLastname('Doe');
-        $user3->setPicture('');
+        $user3->setUpdatedAt(new \DateTime("2019-04-24"));
+        $user3->setFilename('/uploads/images/users/images (2).jpeg');
         $user3->setPassword($this->passwordEncoder->EncodePassword($admin, 'jdoe') );
         $user3->setRoles(["ROLE_USER"]);
         $user3->setPhone('0656788985');

@@ -12,11 +12,13 @@ class StatusFixtures extends Fixture
     {
          $status = new Status();
          $status->setLabel('En prêt');
+         $status->setColor('red');
          $this->addReference('status-1', $status);
          $manager->persist($status);
     
         $status = new Status();
         $status->setLabel('Disponible');
+        $status->setColor('green');
         $this->addReference('status-2', $status);
         $manager->persist($status);
         

@@ -35,29 +35,60 @@
                     <a class="nav-link {% if current_menu is defined and current_menu == 'groups' %}active{% endif %}"
                        href="{{ path('group_share_index') }}">Les groupes</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mon Activité</a>
+                <li class="nav-item dropdown show">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Mes activités </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('activity_borrow') }}">Prêts et emprunts</a>
+                        <a class="dropdown-item" href="{{ path('activity_article') }}">Mes objets</a>
+                    </div>
+
                 </li>
-                <li class="nav-item">
+
             </ul>
         {% endblock %}
     </div>
     <div>
         {% block navbarRight %}
             <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="dropdown-item" href="{{ path('app_logout') }}">
-                        <i class="fa fa-sign-in"></i>
-                        Se déconnecter
-                    </a>
-                </li>
+                {% if app.user %}
+                    <li class="dropdown-item dropdown">
 
-                <li>
-                    <a class="dropdown-item" href="{{ path('app_login') }}">
-                        <i class="fa fa-sign-in"></i>
-                        Se connecter
-                    </a>
-                </li>
+                        <img class="rounded-circle foto-login"
+                             src="{{ asset('uploads/images/users/' ~ app.user.filename ) }}">
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">
+                            <i class="fa fa-sign-in"></i>
+                            Se déconnecter
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-sign-in"></i>
+                            mon compte
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item" href="{{ path('app_login') }}">
+                            <i class="fa fa-sign-out"></i>
+                            Se connecter
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item" href="{{ path('app_register') }}">
+                            <i class="fa fa-sign-out"></i>
+                            s'inscrire
+                        </a>
+                    </li>
+
+                {% endif %}
+
+
             </ul>
         {% endblock %}
     </div>

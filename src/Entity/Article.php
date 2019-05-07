@@ -5,9 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -28,10 +33,7 @@ class Article
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $picture;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
@@ -56,12 +58,28 @@ class Article
      * @ORM\JoinColumn(nullable=false)
      */
     private $status;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    
+    private $filename;
+    
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="article_image", fileNameProperty="filename")
+     * @Assert\Image(mimeTypes={ "image/jpeg", "image/jpg", "image/png"  }, mimeTypesMessage = "Extension valide : .jpeg .png .jpg", groups = {"create"})
+ 
+     */
+    private $imageFile;
+    
+    private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Borrow", mappedBy="article", orphanRemoval=true)
      */
     private $borrows;
-
+    
     public function __construct()
     {
         $this->borrows = new ArrayCollection();
@@ -95,23 +113,17 @@ class Article
 
         return $this;
     }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
+    
 
     public function getUser(): ?User
     {
         return $this->user;
     }
+    
+    /**
+     * @param null|string $user
+     * @return Article
+     */
 
     public function setUser(?User $user): self
     {
@@ -186,4 +198,75 @@ class Article
 
         return $this;
     }
+    
+    /**
+     * @return null|string
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+    
+    /**
+     * @param null|string $filename
+     * @return Article
+     */
+    public function setFilename(?string $filename): Article
+    {
+        $this->filename = $filename;
+    
+        // Only change the updated af if the file is really uploaded to avoid database updates.
+        // This is needed when the file should be set when loading the entity.
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        
+        return $this;
+    }
+    
+    /**
+     * @return null|File
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    
+    /**
+     * @param null|File $imageFile
+     * @return Article
+     */
+    public function setImageFile(File $imageFile): Article
+    {
+        $this->imageFile = $imageFile;
+        return $this;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+    
+    /**
+     * @param mixed $updatedAt
+     * @return Article
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+    
+    
+    
+    public function __toString(){
+        
+        return $this->user;
+
+    }
+    
+    
 }

@@ -40,12 +40,23 @@ class GroupShareController extends AbstractController
      */
     public function index(): Response
     {
-        $groupshares = $this->repository->findGroupmember();
+        $groupshares = $this->repository->findGroupcontact();
+        $groupeshare = $this->getDoctrine()->getRepository(GroupShare::class)->findOneBy(['id' =>'1']);
     
         return $this->render('group_share/index.html.twig',[
             'current_menu' => 'groups',
-            'groupshares' => $groupshares
+            'groupshares' => $groupshares,
+            'groupshare' => $groupeshare
     
+        ]);
+    }
+    /**
+     * @Route("/groupshare", name="groupshare_home", methods={"GET"})
+     */
+    public function home(GroupShareRepository $groupShareRepository): Response
+    {
+        return $this->render('group_share/indexgroup.html.twig', [
+            'groupshares' => $groupShareRepository->findAll(),
         ]);
     }
 
@@ -78,7 +89,7 @@ class GroupShareController extends AbstractController
      */
     public function show(GroupShare $groupShare): Response
     {
-        $groupshares = $this->repository->findGroupmember();
+        $groupshares = $this->repository->findGroupcontact();
         $articles = $this->getDoctrine()->getRepository(Article::class)->findByGroupShare($groupShare->getId());
         
         return $this->render('group_share/show.html.twig', [

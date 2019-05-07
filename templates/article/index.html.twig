@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Picture</th>
+                <th>Photo</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,7 +21,8 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.name }}</td>
                 <td>{{ article.description }}</td>
-                <td>{{ article.picture }}</td>
+                <td>{{ article.filename }}</td>
+
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>

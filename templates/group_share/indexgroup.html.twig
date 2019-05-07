@@ -1,1 +1,40 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+    <h1>Article index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>proprietaire</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for groupshare in groupshares %}
+            <tr>
+                <td>{{ groupshare.id }}</td>
+                <td>{{ groupshare.user }}</td>
+                <td>{{ groupshare.description }}</td>
+                <td>{{ groupshare.icon }}</td>
+
+                <td>
+                    <a href="{{ path('group_share_show', {'id': groupshare.id}) }}">show</a>
+                    <a href="{{ path('group_share_edit', {'id': groupshare.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('group_share_new') }}">Create new</a>
+{% endblock %}

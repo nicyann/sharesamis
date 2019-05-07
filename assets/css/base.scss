@@ -1,4 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+//....................bare de navigation....................
+
+.foto-login {
+  width: 50px;
+  height: 50px;
+
+}
 
 h1 {
   color: #F7882F	;
@@ -24,6 +31,7 @@ background-color: #6B7A8F;
 .cadre {
   background-color: #DCC7AA;
   height: 100%;
+  border-radius: 30px;
 }
 .p-row {
   height: 400px;
@@ -38,6 +46,8 @@ background-color: #6B7A8F;
 .w-form-title {
   width: 252px;
 }
+
+
 //---------------------page groupe------------------
 //Section detail groupe
 .bouton-postuler {
@@ -57,4 +67,23 @@ background-color: #6B7A8F;
   width: 160px;
   height: 100px;
 
+}
+
+.grp-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+}
+
+//section détail articles
+
+.photo-cdr {
+  border: 5px solid gray;
+}
+
+.card-body p {
+  font-size: 11px;
+}
+.ligne-btn button {
+  font-size: 9px;
+  margin:0 1px ;
 }

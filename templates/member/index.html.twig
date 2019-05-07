@@ -9,7 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Nom du membre</th>
                 <th>IsValid</th>
+                <th>Groupe</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,7 +19,9 @@
         {% for member in members %}
             <tr>
                 <td>{{ member.id }}</td>
+                <td>{{ member.user }}</td>
                 <td>{{ member.isValid ? 'Yes' : 'No' }}</td>
+                <td>{{ member.groupshare }}</td>
                 <td>
                     <a href="{{ path('member_show', {'id': member.id}) }}">show</a>
                     <a href="{{ path('member_edit', {'id': member.id}) }}">edit</a>

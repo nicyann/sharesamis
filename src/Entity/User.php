@@ -537,6 +537,10 @@ class User implements UserInterface
     {
         $this->updatedAt = $updatedAt;
     }
-    
+    public function __toString(){
+       
+        return $this->getLastname();
+
+    }
 }
 

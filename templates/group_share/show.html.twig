@@ -3,38 +3,52 @@
 {% block title 'Les groupes' %}
 
 {% block content %}
+    {#Container détail groupe#}
+    {# container membres du groupe #}
+    <div class="container p-3 mb-3 cadre ">
+        <div class="d-flex justify-content-between">
+            <div class="col-md-4 d-flex justify-content-center d-flex align-items-center">
+                <div class="bouton-postuler">Postuler</div>
+            </div>
+            <div class="col-md-4 ">
+                <img class=" grp-img" src="{{ asset('build/images/') ~ groupshare.icon }}">
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <h3 class="grp-title">{{ groupshare.name }}</h3>
+            </div>
+        </div>
 
-
-    <div class="d-flex justify-content-between">
-        <div class="col-md-4 d-flex justify-content-center d-flex align-items-center">
-            <div  class="bouton-postuler">Postuler</div>
+        {#Nom et phot des membres#}
+        <div class="d-flex flex-row">
+            {% for member in groupshare.members %}
+                {% if member.isValid %}
+                    <div class="p-2 ">
+                        {{ member.user.firstname }} {{ member.user.lastname }}
+                        <img class="rounded-circle" src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}">
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
-        <div class="col-md-4 ">
-            <img class=" grp-img" src="{{ asset('build/images/') ~ groupshare.icon }}">
+    </div>
+    {#Container article#}
+    <div class="container-fluid bg-3 text-center cadre">
+        <h3 class="p-3">Les objets du groupe</h3>
+        <div class="row">
+            {% for article in articles %}
+            <div class="card m-3 col-sm-3">
+                <img class="card-img-top photo-cdr" src="{{ asset('uploads/images/articles/' ~ article.filename) }}" alt="Image">
+                <div class="card-body">
+                    <div class="card-title">{{ article.name }}</div>
+                    <div class=" d-flex justify-content-around ligne-btn">
+                        <button type="button" class="btn btn-secondary">Secondary</button>
+                        <button type="button" class="btn btn-success">Success</button>
+                    </div>
+                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+                </div>
         </div>
-        <div class="col-md-4 d-flex align-items-center">
-            <h3>{{ groupshare.name }}</h3>
-        </div>
+        {% endfor %}
+    </div>
     </div>
 
 
-    <div class="d-flex flex-row">
-        {% for member in groupshare.members %}
-            {% if member.isValid %}
-        <div class="p-2 ">
-                {{ member.user.firstname }} {{ member.user.lastname }}
-                <img class="rounded-circle" src="{{ asset('uploads/images/users/' ~ member.user.filename )}}">
-        </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-
-
-
-    <ul>
-        {% for article in articles %}
-            <li>{{ article.name }}</li>
-        {% endfor %}
-    </ul>
-    
 {% endblock %}

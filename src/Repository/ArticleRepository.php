@@ -28,7 +28,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function findByGroupShare(int $id)
     {
         $qb = $this->createQueryBuilder('a');
-        
+    
         $qb = $qb->select('a')
             ->innerJoin('a.user', 'u')
             ->innerJoin('u.groupShares', 'g')

@@ -19,7 +19,7 @@ class GroupShareRepository extends ServiceEntityRepository
         parent::__construct($registry, GroupShare::class);
     }
     
-    public function findGroupmember()
+    public function findGroupcontact()
     {
         $qb = $this->createQueryBuilder('g');
         

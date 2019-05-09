@@ -28,13 +28,17 @@ class ActivityController extends AbstractController
      */
     public function objets()
     {
-        $repository = $this->getDoctrine()->getRepository(Article::class);
-        $articles =$repository->findBy([ 'user' => $this->getUser() ]);
-        $countarticles = $repository->count(['user' => $this->getUser()]);
+        $repositoryA = $this->getDoctrine()->getRepository(Article::class);
+        $repositoryB = $this->getDoctrine()->getRepository(Borrow::class);
+        
+        $articles =$repositoryA->findBy([ 'user' => $this->getUser() ]);
+        $countarticles = $repositoryA->count(['user' => $this->getUser()]);
+        $countborrow = $repositoryB->count(['user' => $this->getUser()]);
         
         return $this->render('activity/objets.html.twig', [
             'articles' => $articles,
-            'countarticles' => $countarticles
+            'countarticles' => $countarticles,
+            'countborrow' =>$countborrow
         ]);
     }
     
@@ -44,13 +48,17 @@ class ActivityController extends AbstractController
     
     public function borrow()
     {
-        $repository = $this->getDoctrine()->getRepository(Article::class);
-        $articles =$repository->findBy([ 'user' => $this->getUser() ]);
-        $countarticles = $repository->count(['user' => $this->getUser()]);
+        $repositoryA = $this->getDoctrine()->getRepository(Article::class);
+        $repositoryB = $this->getDoctrine()->getRepository(Borrow::class);
+        
+        $articles =$repositoryA->findBy([ 'user' => $this->getUser() ]);
+        $countarticles = $repositoryA->count(['user' => $this->getUser()]);
+        $countborrow = $repositoryB->count(['user' => $this->getUser()]);
         
         return $this->render('activity/prets.html.twig', [
             'articles' => $articles,
-            'countarticles' => $countarticles
+            'countarticles' => $countarticles,
+            'countborrow' => $countborrow
         ]);
 
     }

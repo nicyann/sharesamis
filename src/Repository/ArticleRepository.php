@@ -50,10 +50,10 @@ class ArticleRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
     
+    
     public function findArticleBorrowOut (Borrow $borrow , User $user=null)
     {
-
-
+        
         $qb= $this->createQueryBuilder('a');
         $qb = $qb->select('a')
             ->innerJoin('a.user', 'u')
@@ -71,7 +71,7 @@ class ArticleRepository extends ServiceEntityRepository
             
 
              ;
-        return $qb->setParameter(':status', $borrow->getId())
+        return $qb->setParameter(':status', $borrow="En prêts")
             ->getQuery()
             ->getResult();
 

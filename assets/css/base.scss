@@ -46,6 +46,16 @@ background-color: #6B7A8F;
 .w-form-title {
   width: 252px;
 }
+.color-menu {
+  color: white;
+}
+
+//-------------------------Barre de navigation
+.custom-nav {
+  border-bottom: 2px solid #F7882F;
+
+}
+
 
 
 //---------------------page groupe------------------
@@ -86,4 +96,44 @@ background-color: #6B7A8F;
 .ligne-btn button {
   font-size: 9px;
   margin:0 1px ;
+}
+
+//.............................Page prêts et emprunts..................................
+
+.date-article {
+  font-size: 9px;
+  font-weight: bold;
+}
+.bouton-name {
+  width: 100px;
+  height: 50px;
+  border: 2px solid grey;
+  border-radius: 20%;
+
+}
+.photo-pret{
+
+  width: 120px;
+  height:120px;
+  border-radius: 50%;
+
+}
+
+.div-btn {
+  width:100px;
+}
+.rounded-button {
+  width:75px;
+  height:75px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+.card-color {
+  background-color: #DCC7AA;
+}
+.titre-avtivity {
+  font-size:24px;
+  color: #F9F8F8;
 }

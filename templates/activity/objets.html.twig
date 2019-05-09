@@ -1,1 +1,42 @@
-{% extends "base.html.twig" %}
+{% extends "activity/base.html.twig" %}
+
+{% block title %}Mes Objets {% endblock %}
+
+{% block content %}
+    <h3 class="p-3 titre-avtivity">Mes Objets</h3>
+    <div class="row">
+        {% for article in articles %}
+        <div class="card m-3 col-md-4 card-color">
+            <div class="position-relative image-article">
+                <a href="#" class="btn btn-success btn-sm disabled position-absolute" tabindex="-1" role="button"
+                   aria-disabled="true">{{ article.status }}</a>
+                <img class="img-fluid card-img photo-cdr" src="{{ asset('uploads/images/articles/' ~ article.filename) }}"
+                     alt="Image">
+                <div class="text-center">
+                    <a href="#" class="btn btn btn-primary btn-sm disabled position-absolute position-sticky "
+                       tabindex="-1" role="button" aria-disabled="true">Modifier</a>
+                </div>
+            </div>
+
+            <div class="card-body p-2">
+
+                <div class="card-title text-center">{{ article.name }}</div>
+                <div class=" d-flex justify-content-around ligne-btn">
+
+                    <a href="#" class="btn btn btn-success btn-sm " role="button">{{ article.category }}</a>
+
+                </div>
+                <p>Date de création :<span>08/05/2019</span></p>
+                <div>
+                    <h4>Description</h4>
+                    <p>{{ article.description }}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

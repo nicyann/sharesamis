@@ -11,9 +11,9 @@
 
     {{ form_start(registrationForm) }}
         <div class="row">
-            <div class="col-md-6">{{ form_row(registrationForm.firstname)}}</div>
-            <div class="col-md-6">{{ form_row(registrationForm.lastname)}}</div>
-            <div class="col-md-6">{{ form_row(registrationForm.email)}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.firstname, {'label': 'Prénom', 'attr':{'placeholder':'Entrez votre prénom'}})}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.lastname,  {'label': 'Nom', 'attr':{'placeholder':'Entrez votre Nom'}})}}</div>
+            <div class="col-md-6">{{ form_row(registrationForm.email,  {'label': 'Mail', 'attr':{'placeholder':'Entrez votre adresse mail'}})}}</div>
             <div class="col-md-6">{{ form_row(registrationForm.plainPassword)}}</div>
             <div class="col-md-6">{{ form_row(registrationForm.plainPassword)}}</div>
             <div class="col-md-6">{{ form_row(registrationForm.address)}}</div>

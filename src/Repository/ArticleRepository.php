@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Article;
+use App\Entity\Borrow;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -17,6 +19,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Article::class);
+      
     }
     
     
@@ -28,12 +31,12 @@ class ArticleRepository extends ServiceEntityRepository
     public function findByGroupShare(int $id)
     {
         $qb = $this->createQueryBuilder('a');
-    
+        
         $qb = $qb->select('a')
             ->innerJoin('a.user', 'u')
-            ->innerJoin('u.groupShares', 'g')
-            ->innerJoin('u.members', 'm')
-            ->innerJoin('m.groupShare', 'gm')
+            ->leftJoin('u.groupShares', 'g')
+            ->leftJoin('u.members', 'm')
+            ->leftJoin('m.groupShare', 'gm')
             ->where($qb->expr()->orX(
                 $qb->expr()->andX(
                     $qb->expr()->eq('m.isValid', true),
@@ -45,6 +48,34 @@ class ArticleRepository extends ServiceEntityRepository
         ;
         
         return $qb->getQuery()->getResult();
+    }
+    
+    public function findArticleBorrowOut (Borrow $borrow , User $user=null)
+    {
+
+
+        $qb= $this->createQueryBuilder('a');
+        $qb = $qb->select('a')
+            ->innerJoin('a.user', 'u')
+            ->innerJoin('u.borrows', 'b')
+            ->innerJoin('b.article', 'ba')
+            ->where($qb->expr()->andX(
+                $qb->expr()->eq('a.user' ,':currentuser'),
+                $qb->expr()->eq('a.status', ':status')
+                )
+
+            )
+//            ->where( 'user = :currentuser')
+//            ->andWhere('a.status = :status' )
+            ->setParameter(':currentuser', $user->getId())
+            
+
+             ;
+        return $qb->setParameter(':status', $borrow->getId())
+            ->getQuery()
+            ->getResult();
+
+      
     }
 
     // /**

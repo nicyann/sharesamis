@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ActivityController!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container d-flex justify-content-md-around  p-3">
+
+        <div class="col-4 border m2 cadre">
+            <div class="card w-100 bg-transparent mt-3" >
+                <div class="d-flex row justify-content-center div-haut">
+                    <div class=" div-btn text-center">
+                        <button type="button" class="btn btn-secondary btn-lg">{{ app.user.firstname }}</button>
+                    </div>
+                    <img class="photo-pret" src="{{ asset('uploads/images/users/' ~ app.user.filename) }}"  alt="...">
+                    <div class="div-btn text-center">
+                        <button type="button" class="btn btn-secondary btn-lg">Groupe</button>
+                    </div>
+                </div>
+                <div class="text-center m-2">
+                    <a href="#" class="btn btn-primary">Nouvel objet</a>
+                </div>
+                <div class="nbre-objets text-center m-2">
+                    <h4>mes objets</h4>
+                    <button type="button" class="btn btn-secondary btn- rounded-button bg-info">{{ countarticles }}</button>
+                </div>
+                <div class="nbre-objets text-center m-2">
+                    <h4>mes prêts</h4>
+                    <button type="button" class="btn btn-success btn-sl rounded-button bg-success">12</button>
+                </div>
+                <div class="nbre-objets text-center m-2">
+                    <h4>mes Emprunts</h4>
+                    <button type="button" class="btn btn-secondary btn-sl rounded-button bg-warning">12</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-8  ml-5 ">
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+
+
+    </div>
+{% endblock %}
+

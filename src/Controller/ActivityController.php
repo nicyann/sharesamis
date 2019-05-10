@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Borrow;
+use App\Entity\Status;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,16 +50,29 @@ class ActivityController extends AbstractController
     public function borrow()
     {
         $repositoryA = $this->getDoctrine()->getRepository(Article::class);
+        $status = $this->getDoctrine()->getRepository(Status::class)->findOneBy(['label'=>'En prêt']);
+        
         $repositoryB = $this->getDoctrine()->getRepository(Borrow::class);
+        $repositoryC = $this->getDoctrine()->getRepository(Article::class)->findArticleBorrowOut($status,$this->getUser());
+        
         
         $articles =$repositoryA->findBy([ 'user' => $this->getUser() ]);
         $countarticles = $repositoryA->count(['user' => $this->getUser()]);
         $countborrow = $repositoryB->count(['user' => $this->getUser()]);
+        $countbBorrowOut =count($repositoryC);
+        
+       
+        
+        
+        
         
         return $this->render('activity/prets.html.twig', [
             'articles' => $articles,
             'countarticles' => $countarticles,
-            'countborrow' => $countborrow
+            'countborrow' => $countborrow,
+            'countborrowout' =>$countbBorrowOut
+            
+            
         ]);
 
     }

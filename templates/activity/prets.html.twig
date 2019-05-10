@@ -5,21 +5,21 @@
 
             {% block content %}
                 <h3 class="p-3 titre-avtivity">Mes prêts</h3>
-                {#
-                                <ul>
-                                    <h4>prêts</h4>
-                                    {% for article in app.user.articles if article.status.label == "Dsponible" %}
-                                        <li>{{ article.name }}</li>
-                                    {% endfor %}
-                                </ul>
 
-                                <ul>
-                                    <h4>Emprunts</h4>
-                                    {% for borrow in app.user.borrows if borrow.returned == true %}
-                                        <li>{{ borrow.article.name }}</li>
-                                    {% endfor %}
-                                </ul>
-                #}
+                                {#<ul>#}
+                                    {#<h4>prêts</h4>#}
+                                    {#{% for article in articles %}#}
+                                        {#<li>{{ article.name }}</li>#}
+                                    {#{% endfor %}#}
+                                {#</ul>#}
+
+                                {#<ul>#}
+                                    {#<h4>Emprunts</h4>#}
+                                    {#{% for borrow in app.user.borrows if borrow.returned == true%}#}
+                                        {#<li>{{ borrow.article.name }}</li>#}
+                                    {#{% endfor %}#}
+                                {#</ul>#}
+
                 <div class="row">
 
                     {% for article in app.user.articles if article.status.label == "En prêt" %}
@@ -57,7 +57,7 @@
                 <div class="">
                     <h3 class="p-3">Mes Emprunts </h3>
                     <div class="row">
-                        {% for borrow in app.user.borrows if borrow.returned == true %}
+                        {% for borrow in app.user.borrows if borrow.returned == false %}
                             <div class=" card m-3 col-lg-3 card-color">
                                 <img class="img-fluid card-img photo-cdr" src="{{ asset('uploads/images/articles/' ~ borrow.article.filename) }}"
                                      alt="Image">

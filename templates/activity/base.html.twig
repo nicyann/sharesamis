@@ -15,7 +15,7 @@
                     </div>
                     <img class="photo-pret" src="{{ asset('uploads/images/users/' ~ app.user.filename) }}"  alt="...">
                     <div class="div-btn text-center">
-                        <button type="button" class="btn btn-secondary btn-lg">Groupe</button>
+                        <button type="button" class="btn btn-secondary btn-lg"></button>
                     </div>
                 </div>
                 <div class="text-center m-2">
@@ -27,11 +27,11 @@
                 </div>
                 <div class="nbre-objets text-center m-2">
                     <h4>mes prêts</h4>
-                    <button type="button" class="btn btn-success btn-sl rounded-button bg-success">{{ countborrow }}</button>
+                    <button type="button" class="btn btn-success btn-sl rounded-button bg-success">{{ countborrowout }}</button>
                 </div>
                 <div class="nbre-objets text-center m-2">
                     <h4>mes Emprunts</h4>
-                    <button type="button" class="btn btn-secondary btn-sl rounded-button bg-warning">12</button>
+                    <button type="button" class="btn btn-secondary btn-sl rounded-button bg-warning">{{ countborrow }}</button>
                 </div>
 
             </div>

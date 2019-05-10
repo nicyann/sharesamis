@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use App\Entity\Borrow;
+use App\Entity\Status;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -51,49 +52,37 @@ class ArticleRepository extends ServiceEntityRepository
     }
     
     
-    public function findArticleBorrowOut (Borrow $borrow , User $user=null)
+    public function findArticleBorrowOut (Status $status, User $user)
     {
         
         $qb= $this->createQueryBuilder('a');
         $qb = $qb->select('a')
             ->innerJoin('a.user', 'u')
-            ->innerJoin('u.borrows', 'b')
-            ->innerJoin('b.article', 'ba')
+            ->innerJoin('a.status', 's')
             ->where($qb->expr()->andX(
-                $qb->expr()->eq('a.user' ,':currentuser'),
+                $qb->expr()->eq('a.user' , ':currentuser'),
                 $qb->expr()->eq('a.status', ':status')
                 )
 
             )
 //            ->where( 'user = :currentuser')
 //            ->andWhere('a.status = :status' )
-            ->setParameter(':currentuser', $user->getId())
+            ->setParameter(':currentuser', $user)
+            ->setParameter(':status', $status)
+            
             
 
              ;
-        return $qb->setParameter(':status', $borrow="En prêts")
-            ->getQuery()
-            ->getResult();
+        return $qb->getQuery()->getResult();
 
       
     }
 
-    // /**
-    //  * @return Article[] Returns an array of Article objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+     /**
+      * @return Article[] Returns an array of Article objects
+      */
+
+    
 
     /*
     public function findOneBySomeField($value): ?Article

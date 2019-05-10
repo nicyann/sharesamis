@@ -15,7 +15,8 @@
                     </div>
                     <img class="photo-pret" src="{{ asset('uploads/images/users/' ~ app.user.filename) }}"  alt="...">
                     <div class="div-btn text-center">
-                        <button type="button" class="btn btn-secondary btn-lg"></button>
+                        {#{% for groupshare in app.user.groupshares %}#}
+                        <button type="button" class="btn btn-secondary btn-lg">{{ member.groupshare}}</button>
                     </div>
                 </div>
                 <div class="text-center m-2">

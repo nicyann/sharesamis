@@ -95,7 +95,7 @@ class GroupShareController extends AbstractController
         return $this->render('group_share/show.html.twig', [
             'groupshares' => $groupshares,
             'groupshare' => $groupShare,
-            'articles' => $articles,
+            'articles' => $articles
         ]);
     }
 

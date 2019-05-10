@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Borrow;
+use App\Entity\GroupShare;
+use App\Entity\Member;
 use App\Entity\Status;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,15 +33,23 @@ class ActivityController extends AbstractController
     {
         $repositoryA = $this->getDoctrine()->getRepository(Article::class);
         $repositoryB = $this->getDoctrine()->getRepository(Borrow::class);
+        $status = $this->getDoctrine()->getRepository(Status::class)->findOneBy(['label'=>'En prêt']);
+        $repositoryC = $this->getDoctrine()->getRepository(Article::class)->findArticleBorrowOut($status,$this->getUser());
+        $member =$this->getDoctrine()->getRepository(Member::class)->find($this->getUser());
         
         $articles =$repositoryA->findBy([ 'user' => $this->getUser() ]);
         $countarticles = $repositoryA->count(['user' => $this->getUser()]);
-        $countborrow = $repositoryB->count(['user' => $this->getUser()]);
+        $countborrow = $repositoryB->count(['user' => $this->getUser(),'returned' => '0']);
+        $countbBorrowOut =count($repositoryC);
+        
         
         return $this->render('activity/objets.html.twig', [
             'articles' => $articles,
             'countarticles' => $countarticles,
-            'countborrow' =>$countborrow
+            'countborrow' =>$countborrow,
+            'countborrowout' =>$countbBorrowOut,
+            'member' => $member
+            
         ]);
     }
     
@@ -54,11 +64,11 @@ class ActivityController extends AbstractController
         
         $repositoryB = $this->getDoctrine()->getRepository(Borrow::class);
         $repositoryC = $this->getDoctrine()->getRepository(Article::class)->findArticleBorrowOut($status,$this->getUser());
-        
+        $member =$this->getDoctrine()->getRepository(Member::class)->find($this->getUser());
         
         $articles =$repositoryA->findBy([ 'user' => $this->getUser() ]);
         $countarticles = $repositoryA->count(['user' => $this->getUser()]);
-        $countborrow = $repositoryB->count(['user' => $this->getUser()]);
+        $countborrow = $repositoryB->count(['user' => $this->getUser(),'returned' => '0']);
         $countbBorrowOut =count($repositoryC);
         
        
@@ -70,7 +80,8 @@ class ActivityController extends AbstractController
             'articles' => $articles,
             'countarticles' => $countarticles,
             'countborrow' => $countborrow,
-            'countborrowout' =>$countbBorrowOut
+            'countborrowout' =>$countbBorrowOut,
+            'member' => $member
             
             
         ]);

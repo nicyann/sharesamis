@@ -3,48 +3,100 @@
 {% block title 'Sharesamis' %}
 
 {% block body %}
-    <div class="jumbotron text-center">
-        <h1>Bienvenue sur SharesAmis</h1>
-        <p>petits prêts entre amis !</p>
 
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Header -->
+    <div class="container-fluid" id="entete">
+                <h2 class="slogan"> <span class="badge badge-pill badge-perso">Petits prêts entre amis</span></h2>
+        <div class="container text-center titre-search ">
+            <p class="titre-sharesamis">SHARESAMIS</p>
+                <div class="span12 ">
+                    <form role="form" id="form-buscar">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input id="1" class="form-control" type="text" name="search" placeholder="Search..."
+                                       required/>
+                                <span class="input-group-btn">
+                            <button class="btn btn-light" type="submit">
+                            <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
+                            </button>
+                            </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
-    </nav>
-    <div >
-        <p class="test"
-        > test</p>
+                <a href="{{ path('app_register') }}" class="view bouton-inscription"> <span class="badge badge-pill inscription">Inscription</span></a>
+    </div>
+    <!-- /Header -->
+
+    <!-- Intro -->
+    <br><br>
+    <div class="container d-flex bloc-plateform pl-0 mt-3">
+        <div class="col-4 notre-plateform">
+        <h2 class="thin text-right"><span class="font-65">Notre</span> <span class="font-55">Plateforme</span></h2>
+        </div>
+        <div class="col-8 descr-plateforme">
+        <p>
+            Nous sommes une communauté d'échanges et de prêts d'objet. le principe est de créer un groupe dont les membres sont tous
+            amis afin de se pprêter des objets en toute confiance
+        </p>
+        </div>
+    </div>
+    <!-- /Intro-->
+
+    <!-- Highlights - jumbotron -->
+    <div class="jumbotron top-space">
+        <div class="container">
+
+            <h3 class="text-center thin">Reasons to use this template</h3>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Bootstrap-powered</h4></div>
+                    <div class="h-body text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur.
+                            Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor
+                            quam iusto assumenda hic reprehenderit?</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Fat-free</h4></div>
+                    <div class="h-body text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad
+                            fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam
+                            quibusdam rerum repellendus laboriosam reprehenderit! </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Creative Commons</h4></div>
+                    <div class="h-body text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis,
+                            perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum
+                            reprehenderit dolorem dicta nesciunt corporis?</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Author's support</h4></div>
+                    <div class="h-body text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem
+                            quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio
+                            sequi atque temporibus facere corporis eos expedita? </p>
+                    </div>
+                </div>
+            </div> <!-- /row  -->
+
+        </div>
+    </div>
+
+    <!-- /Highlights -->
+
+    <!-- container -->
+    <div class="container">
+        <div class="input-append span12">
+            <input type="text" class="search-query" placeholder="Search">
+            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+            <i class="fa fa-500px"></i>
+        </div>
     </div>
 {% endblock %}

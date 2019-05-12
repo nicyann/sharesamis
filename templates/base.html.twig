@@ -13,6 +13,7 @@
     {% endblock %}
 </head>
 <body>
+<div class="container-fluid">
 <nav class="navbar navbar-expand-lg  custom-nav">
 
     <a class="navbar-brand" href="{{ path('index') }}">
@@ -93,6 +94,7 @@
         {% endblock %}
     </div>
 </nav>
+</div>
 {% block body %}{% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

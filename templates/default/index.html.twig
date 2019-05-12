@@ -6,27 +6,28 @@
 
     <!-- Header -->
     <div class="container-fluid" id="entete">
-                <h2 class="slogan"> <span class="badge badge-pill badge-perso">Petits prêts entre amis</span></h2>
+        <h2 class="slogan"><span class="badge badge-pill badge-perso">Petits prêts entre amis</span></h2>
         <div class="container text-center titre-search ">
             <p class="titre-sharesamis">SHARESAMIS</p>
-                <div class="span12 ">
-                    <form role="form" id="form-buscar">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input id="1" class="form-control" type="text" name="search" placeholder="Search..."
-                                       required/>
-                                <span class="input-group-btn">
+            <div class="span12 ">
+                <form role="form" id="form-buscar">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="1" class="form-control" type="text" name="search" placeholder="Search..."
+                                   required/>
+                            <span class="input-group-btn">
                             <button class="btn btn-light" type="submit">
                             <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
                             </button>
                             </span>
-                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
 
         </div>
-                <a href="{{ path('app_register') }}" class="view bouton-inscription"> <span class="badge badge-pill inscription">Inscription</span></a>
+        <a href="{{ path('app_register') }}" class="view bouton-inscription"> <span
+                    class="badge badge-pill inscription">Inscription</span></a>
     </div>
     <!-- /Header -->
 
@@ -34,20 +35,49 @@
     <br><br>
     <div class="container d-flex bloc-plateform pl-0 mt-3">
         <div class="col-4 notre-plateform">
-        <h2 class="thin text-right"><span class="font-65">Notre</span> <span class="font-55">Plateforme</span></h2>
+            <h2 class="thin text-right"><span class="font-65">Notre</span> <span class="font-55">Plateforme</span></h2>
         </div>
         <div class="col-8 descr-plateforme">
-        <p>
-            Nous sommes une communauté d'échanges et de prêts d'objet. le principe est de créer un groupe dont les membres sont tous
-            amis afin de se pprêter des objets en toute confiance
-        </p>
+            <p>
+                Nous sommes une communauté d'échanges et de prêts d'objet. le principe est de créer un groupe dont les
+                membres sont tous
+                amis afin de se pprêter des objets en toute confiance
+            </p>
         </div>
     </div>
     <!-- /Intro-->
 
+    <!-- Bloc groupe -->
+
+    <div class="container d-flex border mt-5 group-container">
+        <div class="col-4 bloc-photo p-3"><img src="{{ asset('build/images/groupes-amis.jpg') }}"></div>
+        <div class="bloc-droite">
+            <div class="descrption-grp">
+                <div class="descrption-grp2 "> sommes un petit groupes sympa
+                    ici l'ambiance est conviviale on se connait depuis ….
+                    bla bla bla
+                </div>
+            </div>
+            <div class="d-flex objet-accueil">
+                <div class="col-6 photo-grpa text-center"><img src="{{ asset('build/images/decolleuse thermique.jpg') }}" alt=""></div>
+                <div class="descript-objeta"><h5>Décolleuse thermique</h5><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt eaque fuga illum ipsa, laborum maxime .
+
+                    </p></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
     <!-- Highlights - jumbotron -->
-    <div class="jumbotron top-space">
-        <div class="container">
+    <div class=" container border jumbotron top-space">
+        <div>
 
             <h3 class="text-center thin">Reasons to use this template</h3>
 
@@ -55,15 +85,18 @@
                 <div class="col-md-3 col-sm-6 highlight">
                     <div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Bootstrap-powered</h4></div>
                     <div class="h-body text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur.
-                            Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci
+                            aspernatur.
+                            Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae
+                            dolor
                             quam iusto assumenda hic reprehenderit?</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 highlight">
                     <div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Fat-free</h4></div>
                     <div class="h-body text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis
+                            ad
                             fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam
                             quibusdam rerum repellendus laboriosam reprehenderit! </p>
                     </div>
@@ -72,14 +105,16 @@
                     <div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Creative Commons</h4></div>
                     <div class="h-body text-center">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis,
-                            perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum
+                            perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet
+                            eum
                             reprehenderit dolorem dicta nesciunt corporis?</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 highlight">
                     <div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Author's support</h4></div>
                     <div class="h-body text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores,
+                            dolorem
                             quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio
                             sequi atque temporibus facere corporis eos expedita? </p>
                     </div>

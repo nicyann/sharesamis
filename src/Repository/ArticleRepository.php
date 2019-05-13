@@ -77,7 +77,31 @@ class ArticleRepository extends ServiceEntityRepository
 
       
     }
-
+    
+    /**
+     * @param string $sq
+     * @return mixed
+     */
+    
+    public function searchBy(string $sq)
+    {
+        $sq ="%$sq%";
+        
+        $qb = $this->createQueryBuilder('a');
+        $qb = $qb
+            ->innerJoin('a.category','c')
+            ->where($qb->expr()->orX(
+                $qb->expr()->like('a.name',':sq'),
+                $qb->expr()->like('a.description',':sq'))
+//            ->where($qb->expr()->orX(
+//                $qb->expr()->eq('a.name.',':sq'),
+//                $qb->expr()->eq('a.description',':sq'),
+//                $qb->expr()->eq('c.name', ':sq'))
+            );
+        return $qb->setParameter(':sq',$sq)->getQuery()->getResult();
+    }
+    
+    
      /**
       * @return Article[] Returns an array of Article objects
       */

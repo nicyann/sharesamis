@@ -9,6 +9,15 @@
         <h2 class="slogan"><span class="badge badge-pill badge-perso">Petits prêts entre amis</span></h2>
         <div class="container text-center titre-search ">
             <p class="titre-sharesamis">SHARESAMIS</p>
+            <div>
+                <form action="{{ path('search')}}" method="GET" class="d-flex">
+                    <label for="search-query"></label>
+                    <input type="text" name="search-query" placeholder="Rechercher un artiste" class="form-control ">
+                    <button type="submit" class="btn btn-outline-primary fa fa-search ml-2">
+                    </button>
+                    {#<a href="{{ path('search') }}"><i class="fa fa-search"></i></a>#}
+                </form>
+            </div>
             <div class="span12 ">
                 <form role="form" id="form-buscar">
                     <div class="form-group">
@@ -46,6 +55,13 @@
         </div>
     </div>
     <!-- /Intro-->
+
+
+    <!-- bloc recherche-->
+
+
+
+    <!-- /bloc recherche->
 
     <!-- Bloc groupe -->
 

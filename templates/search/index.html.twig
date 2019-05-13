@@ -1,24 +1,24 @@
-{% extends "base.html.twig"%}
+{% extends "base.html.twig" %}
 
 {% block body %}
-
-<div class="d-flex justify-content-around mt-5 flex-wrap">
-    {% for article in articles %}
-        <div class="card m-3 col-lg-3">
-            <img class="card-img-top photo-cdr" src="{{ asset('uploads/images/articles/' ~ article.filename) }}"
-                 alt="Image">
-            <div class="card-body">
-                <div class="card-title">{{ article.name }}</div>
-                <div class=" d-flex justify-content-around ligne-btn">
-                    <a href="{{ article.user.firstname }}" role="button"
-                       class="btn btn-secondary">{{ article.user.firstname }}</a>
-                    <button type="button" class="btn btn-success">Success</button>
+    <div class="container">
+        <div class="d-flex justify-content-start mt-5 flex-wrap ">
+            {% for article in articles %}
+                <div class="card m-3 col-lg-2 card-color">
+                    <img class="card-img-top photo-cdr" src="{{ asset('uploads/images/articles/' ~ article.filename) }}"
+                         alt="Image">
+                    <div class="card-body pr-0 pl-0">
+                        <div class="card-title text-center">{{ article.name }}</div>
+                        <div class=" d-flex justify-content-around ligne-btn">
+                            <a href="{{ article.user.firstname }}" role="button"
+                               class="btn btn-secondary">{{ article.user.firstname }}</a>
+                            <button type="button" class="btn btn-success">Success</button>
+                        </div>
+                        <p class="pt-2"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+                    </div>
                 </div>
-                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
-            </div>
+                {#{% include 'user/card.html.twig' %}#}
+            {% endfor %}
         </div>
-        {#{% include 'user/card.html.twig' %}#}
-    {% endfor %}
-</div>
-
+    </div>
 {% endblock %}

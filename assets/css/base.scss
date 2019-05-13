@@ -20,9 +20,13 @@ h1 {
   font-family: 'Open Sans', sans-serif;
 }
 
-img {
-  width: 100px;
-  height:100px;
+.photo-cdr{
+  width: 100%;
+  height: 127px;
+}
+.card-color
+{
+  background-color: #DCC7AA;
 }
 .jumbotron p {
   font-family: 'Great Vibes', cursive;
@@ -101,6 +105,7 @@ background-color: #6B7A8F;
   margin:0 1px ;
 }
 
+
 //.............................Page prêts et emprunts..................................
 
 .date-article {
@@ -143,6 +148,12 @@ background-color: #6B7A8F;
 .alerteur-red {
   background-color: rgba(197, 0, 6, 0.6);
   color: white;
+}
+
+.format-btn {
+  width: 122px;
+  height: 37px;
+  border-radius: 20px;
 }
 //--------------------------------------Page accueil..............................
 #entete
@@ -192,18 +203,23 @@ background-color: #6B7A8F;
 
 //---------------form search-----------------
 
-#logo {
+.logo {
   color: #666;
   width:100%;
 }
-#logo h1 {
+.image-logo {
+  width :100px;
+  height: 100px;
+
+}
+.logo  {
   font-size: 60px;
   text-shadow: 1px 2px 3px #999;
   font-family: Roboto, sans-serif;
   font-weight: 700;
   letter-spacing: -1px;
 }
-#logo p{
+.logo p{
   padding-bottom: 20px;
 }
 

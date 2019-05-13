@@ -3,20 +3,107 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+<div class="container page-login d-flex justify-content-start align-items-center">
+    <div class="bloc-logo  ">
+        <img src="{{ asset('build/images/logo_sharesamis-final.png') }}">
+    </div>
+    <div class=" d-flex flex-column  login-card ">
+        <div class="cardlogin-titre d-flex justify-content-center">
+            <h1 class="">Connexion</h1>
+        </div>
+        <div class="card-form p-3">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <div class="login-connect p-2">
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                           class="form-control" placeholder="Email" required autofocus>
+                </div>
+                <div class="login-pass p-2">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control"
+                           placeholder="Password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                </div>
+                <div class="login-sigin d-flex justify-content-center p-3   ">
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+                    <button class="btn btn-lg btn-primary p-2" type="submit">
+                        Sign in
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+    {#<div class="container page-login d-flex justify-content-start align-items-center">#}
+        {#<div class=" d-flex ali">#}
+
+            {#<div class="bloc-login  ">#}
+                {#<img src="{{ asset('build/images/logo_sharesamis-final.png') }}">#}
+            {#</div>#}
+            {#<div class="form-log">#}
+                {#<h2></h2>#}
+                {#<form method="post">#}
+                    {#{% if error %}#}
+                        {#<label for="inputEmail" class="sr-only">Email</label>#}
+                        {#<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+                    {#{% endif %}#}
+                    {#<div class="col-8 login-titre">#}
+                        {#<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
+                    {#</div>#}
+                    {#<div class="col-8 p-3">#}
+                        {#<input type="email" value="{{ last_username }}" name="email" id="inputEmail"#}
+                               {#class="form-control" placeholder="Email" required autofocus>#}
+                    {#</div>#}
+                    {#<div class="col-8 p-3">#}
+                        {#<label for="inputPassword" class="sr-only">Password</label>#}
+                        {#<input type="password" name="password" id="inputPassword" class="form-control"#}
+                               {#placeholder="Password" required>#}
+                    {#</div>#}
+                    {#<input type="hidden" name="_csrf_token"#}
+                           {#value="{{ csrf_token('authenticate') }}"#}
+                    {#>#}
+
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
+
+                    {#<button class="btn btn-lg btn-primary" type="submit">#}
+                        {#Sign in#}
+                    {#</button>#}
+                {#</form>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<form method="post">#}
+    {#{% if error %}#}
+    {#<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+    {#{% endif %}#}
+
+    {#<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
+    {#<label for="inputEmail" class="sr-only">Email</label>#}
+    {#<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>#}
+    {#<label for="inputPassword" class="sr-only">Password</label>#}
+    {#<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
+
+    {#<input type="hidden" name="_csrf_token"#}
+    {#value="{{ csrf_token('authenticate') }}"#}
+    {#>#}
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -29,8 +116,8 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    {#<button class="btn btn-lg btn-primary" type="submit">#}
+    {#Sign in#}
+    {#</button>#}
+    {#</form>#}
 {% endblock %}

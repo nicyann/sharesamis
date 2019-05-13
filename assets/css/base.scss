@@ -359,7 +359,37 @@ padding: 0 50px;
 }
 
 
+//----------------Page login------
 
+.login-card {
+  width: 400px;
+  height: 250px;
+  padding-left: 45px;
+}
+
+.page-login {
+
+  height: 500px;
+  width: 900px;
+}
+
+.bloc-logo {
+
+  width: 250px;
+  height: 250px;
+  position: relative;
+}
+
+.bloc-logo>img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}
 
 
 

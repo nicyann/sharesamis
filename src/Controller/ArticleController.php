@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -96,14 +97,23 @@ class ArticleController extends AbstractController
     /**
      * @Route("/search-results", name="search", methods="GET")
      */
-    public function searchQuery(Request $request)
+    public function searchQuery(paginatorInterface $paginator,Request $request)
     {
         $uq = $request->get('search-query');
         if ($uq === "") {
-            $articles = $this->getDoctrine()->getRepository(Article::class)->findall();
+            $articles = $paginator->paginate(
+                $this->getDoctrine()->getRepository(Article::class)->findall(),
+                $request->query->getInt('page', 1),
+                10
+                
+                );
             return $this->render('search/index.html.twig', ['articles' => $articles]);
         } else {
-            $articles = $this->getDoctrine()->getRepository(Article::class)->searchBy($uq);
+            $articles = $paginator->paginate(
+                $this->getDoctrine()->getRepository(Article::class)->searchBy($uq),
+                $request->query->getInt('page', 1),
+                10
+                );
             return $this->render('search/index.html.twig', ['articles' => $articles]);
           
         }

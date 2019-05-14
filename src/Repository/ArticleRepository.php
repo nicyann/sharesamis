@@ -7,6 +7,7 @@ use App\Entity\Borrow;
 use App\Entity\Status;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -80,10 +81,10 @@ class ArticleRepository extends ServiceEntityRepository
     
     /**
      * @param string $sq
-     * @return mixed
+     * @return Query
      */
     
-    public function searchBy(string $sq)
+    public function searchBy(string $sq):Query
     {
         $sq ="%$sq%";
         
@@ -98,7 +99,7 @@ class ArticleRepository extends ServiceEntityRepository
 //                $qb->expr()->eq('a.description',':sq'),
 //                $qb->expr()->eq('c.name', ':sq'))
             );
-        return $qb->setParameter(':sq',$sq)->getQuery()->getResult();
+        return $qb->setParameter(':sq',$sq)->getQuery();
     }
     
     

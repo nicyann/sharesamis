@@ -55,12 +55,15 @@
                         <div class=" d-flex justify-content-around ligne-btn">
                             <a href="{{ article.user.firstname }}" role="button"
                                class="btn btn-secondary">{{ article.user.firstname }}</a>
-                            <button type="button" class="btn btn-success">Success</button>
                         </div>
                         <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
                     </div>
                 </div>
             {% endfor %}
+        </div>
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(articles) }}
         </div>
     </div>
 

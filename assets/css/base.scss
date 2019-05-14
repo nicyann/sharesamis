@@ -67,6 +67,10 @@ background-color: #6B7A8F;
 
 //---------------------page groupe------------------
 //Section detail groupe
+.main-cadre {
+  min-height: 500px;
+}
+
 .bouton-postuler {
   border-radius:60%;
   width:100px;
@@ -161,6 +165,18 @@ background-color: #6B7A8F;
 }
 .card-color {
   background-color: #DCC7AA;
+  position: relative;
+}
+.btn-status {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border:1px solid ;
+  color: white;
+  opacity: 0.5;
+  font-size: 11px;
+
+
 }
 .titre-avtivity {
   font-size:24px;
@@ -428,6 +444,49 @@ padding: 0 50px;
   height: 200px;
 }
 
+//---------------Footer-------
+
+.footer-nav {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.main-footer {
+  background-color: #111111;
+  color: #e2e2e2;
+}
+.contact-infos  {
+  list-style-type: none;
+}
+.contact-infos li a {
+  text-decoration: none;
+  color: #b7b2c1;
+
+}
+.footer-follow {
+  width: 100px;
+}
+.social-icones a {
+  text-decoration: none;
+  color: #b7b2c1;
+
+}
+.footer-nav ul{
+  list-style-type: none;
+
+}
+
+.footer-cgu ul {
+
+  color: #b7b2c1;
+  list-style-type: none;
+
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: #b7b2c1;
+}
 
 
 //#head.secondary { height:100px; min-height: 100px; padding-top:0px; }

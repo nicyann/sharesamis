@@ -52,7 +52,7 @@ class ArticleRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
     
-    
+
     public function findArticleBorrowOut (Status $status, User $user)
     {
         

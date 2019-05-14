@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\GroupShare;
 use App\Form\GroupShareType;
 use App\Repository\GroupShareRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -87,10 +88,14 @@ class GroupShareController extends AbstractController
     /**
      * @Route("/{id}", name="group_share_show", methods={"GET"})
      */
-    public function show(GroupShare $groupShare): Response
+    public function show(PaginatorInterface $paginator,GroupShare $groupShare,Request $request): Response
     {
         $groupshares = $this->repository->findGroupcontact();
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findByGroupShare($groupShare->getId());
+        $articles = $paginator->paginate(
+            $this->getDoctrine()->getRepository(Article::class)->findByGroupShare($groupShare->getId()),
+            $request->query->getInt('page',1),
+            6
+        );
         
         return $this->render('group_share/show.html.twig', [
             'groupshares' => $groupshares,

@@ -19,15 +19,27 @@
         </div>
 
         {#Nom et phot des membres#}
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row mt-3 ">
             {% for member in groupshare.members %}
                 {% if member.isValid %}
-                    <div class="p-2 ">
-                        {{ member.user.firstname }} {{ member.user.lastname }}
-                        <img class="rounded-circle" src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}">
+                    <div class="card img-fluid text-center members-photo border-0" style="width:100%">
+                        <a href="#"><img class="rounded-circle img-member"
+                                         src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}"></a>
+                        <div class="card-img test-nom">
+                            <h6 class="card-title ct-membre">{{ member.user.firstname }} {{ member.user.lastname }}</h6>
+                        </div>
                     </div>
                 {% endif %}
             {% endfor %}
+
+            {#<div class="d-flex flex-row">#}
+            {#{% for member in groupshare.members %}#}
+            {#{% if member.isValid %}#}
+            {#<div class="p-2 ">#}
+            {#{{ member.user.firstname }} {{ member.user.lastname }}#}
+            {#<img class="rounded-circle img-member" src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}">#}
+            {#</div>#}
+            {#</div>#}
         </div>
     </div>
     {#Container article#}

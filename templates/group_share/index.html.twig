@@ -3,36 +3,47 @@
 {% block title 'Les groupes' %}
 
 {% block content %}
-    <h3>Détail des groupes</h3>
 
-    {{ groupshare.name }}
 
     {#Container détail groupe#}
     {# container membres du groupe #}
     <div class="container p-3 mb-3 cadre ">
-        <div class="d-flex justify-content-between">
-            <div class="col-md-4 d-flex justify-content-center d-flex align-items-center">
-                <div class="bouton-postuler">Postuler</div>
-            </div>
-            <div class="col-md-4 ">
-                <img class=" grp-img" src="{{ asset('build/images/') ~ groupshare.icon }}">
-            </div>
-            <div class="col-md-4 d-flex align-items-center">
-                <h3 class="grp-title">{{ groupshare.name }}</h3>
-            </div>
+    <div class="d-flex justify-content-between">
+        <div class="col-md-4 d-flex justify-content-center d-flex align-items-center">
+            <div class="bouton-postuler">Postuler</div>
         </div>
+        <div class="col-md-4 ">
+            <img class=" grp-img" src="{{ asset('build/images/') ~ groupshare.icon }}">
+        </div>
+        <div class="col-md-4 d-flex align-items-center">
+            <h3 class="grp-title">{{ groupshare.name }}</h3>
+        </div>
+    </div>
 
-        {#Nom et phot des membres#}
-        <div class="d-flex flex-row">
-            {% for member in groupshare.members %}
-                {% if member.isValid %}
-                    <div class="p-2 ">
-                        {{ member.user.firstname }} {{ member.user.lastname }}
-                        <img class="rounded-circle" src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}">
+    {#Nom et phot des membres#}
+
+
+    <div class="d-flex flex-row mt-3 ">
+        {% for member in groupshare.members %}
+            {% if member.isValid %}
+                <div class="card img-fluid text-center members-photo border-0" style="width:100%">
+                    <a href="#"><img class="rounded-circle img-member"
+                         src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}"></a>
+                    <div class="card-img test-nom">
+                        <h6 class="card-title ct-membre">{{ member.user.firstname }} {{ member.user.lastname }}</h6>
                     </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {#<div class="d-flex flex-row">#}
+        {#{% for member in groupshare.members %}#}
+        {#{% if member.isValid %}#}
+        {#<div class="p-2 ">#}
+        {#{{ member.user.firstname }} {{ member.user.lastname }}#}
+        {#<img class="rounded-circle img-member" src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}">#}
+        {#</div>#}
+        {#</div>#}
     </div>
 
 

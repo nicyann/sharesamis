@@ -13,7 +13,7 @@
                     <h4 class="card-title">{{ article.name }}</h4>
                     <p><span>date: </span><span>{{ article.updatedat }}</span>
                     <p class="card-text">{{ article.description }}</p>
-                    <a href="#" class="btn btn-primary">Modifier</a>
+                    <a href="{{ path('article_show',{'id': article.id}) }}" class="btn btn-primary">Modifier</a>
                 </div>
             <a href="#" class="btn btn-status" style="background-color:{{ article.status.color }}" role="button"
             aria-disabled="true">{{ article.status }}</a>

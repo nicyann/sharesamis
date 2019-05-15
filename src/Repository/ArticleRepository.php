@@ -37,8 +37,8 @@ class ArticleRepository extends ServiceEntityRepository
         $qb = $qb->select('a')
             ->innerJoin('a.user', 'u')
             ->leftJoin('u.groupShares', 'g')
-            ->leftJoin('u.members', 'm')
-            ->leftJoin('m.groupShare', 'gm')
+            ->innerJoin('u.members', 'm')
+            ->innerJoin('m.groupShare', 'gm')
             ->where($qb->expr()->orX(
                 $qb->expr()->andX(
                     $qb->expr()->eq('m.isValid', true),
@@ -48,7 +48,6 @@ class ArticleRepository extends ServiceEntityRepository
             ))
             ->setParameter(':id', $id)
         ;
-        
         return $qb->getQuery()->getResult();
     }
     

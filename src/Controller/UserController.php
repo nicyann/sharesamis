@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\User;
 use App\Form\User1Type;
 use App\Repository\UserRepository;
@@ -53,6 +54,7 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
@@ -92,5 +94,20 @@ class UserController extends AbstractController
         }
 
         return $this->redirectToRoute('user_index');
+    }
+    
+    /**
+     * @route("/{id}/article" , name="user_article", methods={"GET"})
+     */
+    
+    public function viewArticle(User $user) {
+//        $articles = $this->getDoctrine()->getRepository(Article::class)->findByUser($user);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy([ "user" => $user ]);
+        
+        return $this->render('user/base.html.twig',[
+            'articles' => $articles
+        ]);
+    
+    
     }
 }

@@ -264,7 +264,7 @@ class Article
     
     public function __toString(){
         
-        return $this->user;
+        return $this->getName();
 
     }
     

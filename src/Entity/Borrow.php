@@ -107,8 +107,8 @@ class Borrow
 
         return $this;
     }
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->article;
+        return $this->getId();
     }
 }

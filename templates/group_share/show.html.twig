@@ -23,7 +23,7 @@
             {% for member in groupshare.members %}
                 {% if member.isValid %}
                     <div class="card img-fluid text-center members-photo border-0" style="width:100%">
-                        <a href="#"><img class="rounded-circle img-member"
+                        <a href="{{ path('user_article', { 'id': member.user.id }) }}"><img class="rounded-circle img-member"
                                          src="{{ asset('uploads/images/users/' ~ member.user.filename ) }}"></a>
                         <div class="card-img test-nom">
                             <h6 class="card-title ct-membre">{{ member.user.firstname }} {{ member.user.lastname }}</h6>

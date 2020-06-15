@@ -1,4 +1,4 @@
-
+clearImmediate
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -13,7 +13,7 @@ require('../css/app.scss');
 // const $ = require('jquery');
 
 import $ from 'jquery';
-import bootstrap from 'bootstrap';
+// import bootstrap from 'bootstrap';
 import '../css/app.scss';
 
 require('bootstrap');

@@ -196,13 +196,20 @@ background-color: #6B7A8F;
 #entete
 {
   background-image: url("../../public/build/images/headersharsamis2.jpg") ;
-  background-size: 1600px;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   min-height: 420px;
   position: relative;
 
-
 }
+#entete h1
+{
+  text-align: center;
+  padding-top: 25px;
+  font-size: 3.5em;
+}
+
 .slogan
 {
   margin-bottom: 6px;
@@ -212,27 +219,38 @@ background-color: #6B7A8F;
 }
 
 .titre-search {
-  padding-top: 140px;
-  width: 500px;
+  width: 50%;
+  position: absolute;
+  top: 373px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  
 }
 .titre-sharesamis {
-  font-size: 80px;
+  font-size: 36px;
   color: #F7882F;
   font-weight: bolder;
   margin-bottom: 50px;
 }
 .inscription {
-  color: white;
-  background-color: #F7882F;
-  font-size:24px;
+  color: #fff;
+  border: 1px solid #888;
+  background: #ccc;
+  display: inline-block;
+  width: 120px;
+  font-size: 20px;
+  border-radius: 10px;
+ 
+  font-weight: bold;
 }
 
 .bouton-inscription {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
+ text-align: center;
 
 }
+
 .inscription:hover {
   color: white;
   background-color: #6B798F;
@@ -290,30 +308,59 @@ background-color: #6B7A8F;
 }
 
 .badge-perso {
-  color: white;
-  background-color: #F7882F;
   font-family: 'Great Vibes', cursive;
-  font-size: 36px;
+  // color: white;
+  // background-color: #F7882F;
+  // opacity: 0.7;
+  // font-size: 28px;
+  // width: 250px;
+  text-align: center;
+  margin: 5px auto;
+
+
+}
+.badge-perso h2 {
+line-height: 0.7em;
+
 
 }
 
 //-----------------Bloc plateforme---------------
 
-.bloc-plateform {
+.presentation{
   background-color: #DCC7AA;
-  height: 160px;
+
+  margin: 20px auto;
 }
 
 .notre-plateform {
   background-color: #F7882F;
-  height: 130px;
+  height: auto;
+  max-width: 100%;
+  margin: 20px auto;
   text-align: right;
+
+}
+@media (max-width: 576px)
+{
+    .notre-plateform {
+      background-color: #F7882F;
+      height: auto;
+      max-width: 100%;
+      margin: 20px auto;
+      text-align: center;
+      
+    
+    }
+
 
 }
 
 .descr-plateforme {
-  height: 70px;
+  
+  height: auto;
   padding: 20px 50px;
+  margin: auto 0;
 }
 .font-65 {
   font-size: 55px;
@@ -325,15 +372,14 @@ background-color: #6B7A8F;
 
 //--------------Bloc groupe Accueil---------------
 
-.group-container {
+.activity {
   background-color: #DCC7AA;
-  height: 300px;
+  margin: 20px auto
 
 }
 .bloc-photo {
 
 }
-
 
 .bloc-photo>img {
   width: 100%;
@@ -372,6 +418,95 @@ background-color: #6B7A8F;
 }
 .descript-objeta {
 padding: 0 50px;
+}
+.descpt-objet-accueil
+{
+  margin-top: 13px;
+}
+
+.bloc-right p{
+    margin-top: 0;
+    padding: 2px 5px;
+    margin-bottom: 1rem;
+}
+
+.bloc-left img 
+{
+  border-radius: 50%;
+  display: block;
+  margin: 35px auto;
+}
+.bloc-img-accueil .img-thumbnail{
+
+ 
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 13px auto;
+}
+
+.descpt-objet-accueil h5 {
+  font-weight: bold;
+  text-align: center;
+
+} 
+
+.bloc-left,.bloc-right,.objet-accueil
+{
+  border: 4px solid #fff;
+}
+.bloc-right
+{
+  border-left: none;
+}
+.objet-accueil
+{
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+
+
+
+
+
+
+@media (max-width: 576px)
+{
+    .bloc.left {
+     width: auto;
+    
+    }
+    .bloc-left img{
+     display: block;
+     margin: 1px auto;
+
+    
+    }
+.bloc-img-accueil .img-thumbnail{
+
+  margin: 2px auto;
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.bloc-left{
+  border-bottom: none;
+}
+.bloc-right
+{
+  border-left: 4px solid #fff;
+}
+
 }
 
 //-----------Blocs points forts--------

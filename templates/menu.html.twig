@@ -1,0 +1,84 @@
+  <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+
+        <a class="navbar-brand" href="{{ path('index') }}">
+            <div class="logo">
+                <img class="image-logo" src="{{ asset('build/images/logo_sharesamis-final.png') }}">
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {# {% block navbarLeft %} #}
+                <ul class="navbar-nav ">
+                    <li class="nav-item active">
+                        <a class="nav-link color-menu" href="{{ path('index') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link color-menu {% if current_menu is defined and current_menu == 'groups' %}active{% endif %}"
+                           href="{{ path('group_share_index') }}">Les groupes</a>
+                    </li>
+                    <li class="nav-item dropdown show">
+                        <a href="#" class="nav-link dropdown-toggle color-menu" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Mes activités </a>
+                        <div class="dropdown-menu bg-transparent" aria-labelledby="navbarDropdown ">
+                            <a class="dropdown-item color-menu " href="{{ path('activity_borrow') }}">Prêts et
+                                emprunts</a>
+                            <a class="dropdown-item color-menu " href="{{ path('activity_article') }}">Mes objets</a>
+                        </div>
+
+                    </li>
+
+                </ul>
+            {# {% endblock %} #}
+        </div>
+        {# {% block navbarRight %} #}
+        <div class="d-flex">
+            <div class="user-connect">
+                {% if app.user %}
+                <img class="rounded-circle  foto-login"
+                     src="{{ asset('uploads/images/users/' ~ app.user.filename ) }}">
+                {% endif %}
+            </div>
+            <ul class="navbar-nav pt-2">
+                {% if app.user %}
+                    <li class="dropdown-item ">
+
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="dropdown-item color-menu bg-transparent" href="{{ path('app_logout') }}">
+                            <i class="fa fa-sign-in"></i>
+                            Se déconnecter
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item color-menu bg-transparent" href="#">
+                            <i class="fa fa-sign-in"></i>
+                            mon compte
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item color-menu bg-transparent" href="{{ path('app_login') }}">
+                            <i class="fa fa-sign-out color-menu"></i>
+                            Se connecter
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item color-menu bg-transparent" href="{{ path('app_register') }}">
+                            <i class="fa fa-sign-out"></i>
+                            s'inscrire
+                        </a>
+                    </li>
+
+                {% endif %}
+
+
+            </ul>
+            {# {% endblock %} #}
+        </div>
+    </nav>

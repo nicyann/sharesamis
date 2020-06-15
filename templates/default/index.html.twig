@@ -4,147 +4,157 @@
 
 {% block body %}
 
-    <!-- Header -->
-    <div class="container-fluid" id="entete">
-        <h2 class="slogan"><span class="badge badge-pill badge-perso">Petits prêts entre amis</span></h2>
-        <div class="container text-center titre-search ">
-            <p class="titre-sharesamis">SHARESAMIS</p>
+	{{ include('./menu.html.twig') }}
+	<!-- Header -->
+	<div class="container-fluid" id="entete">
+		<h1>SHARESAMIS</h1>
+		<h2 class="badge-perso">
+			Petits prêts entre amis
+		</h2>
+		<div class=" titre-search ">
+			<form action="{{ path('search')}}" method="GET" id="form-buscar">
+				<div class="form-group">
+					<div class="input-group">
+						<label for="search-query"></label>
+						<input class="form-control" type="text" name="search-query" placeholder="Chercher un objet"/>
+						<span class="input-group-btn">
+							<button class="btn btn-light" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="bouton-inscription">
+	
+				<a href="{{ path('app_register') }}" class=" inscription ">
+					Inscription</a>
+	
 
-            <div class="span12 ">
-                <form action="{{ path('search')}}" method="GET"  id="form-buscar">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <label for="search-query"></label>
-                            <input  class="form-control" type="text" name="search-query" placeholder="Chercher un objet"/>
-                            <span class="input-group-btn">
-                            <button class="btn btn-light" type="submit">
-                            <i class="fa fa-search"></i>
-                            </button>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
+		</div>
+	</div>
+	<!-- /Header -->
 
-        </div>
-        <a href="{{ path('app_register') }}" class="view bouton-inscription"> <span
-                    class="badge badge-pill inscription">Inscription</span></a>
-    </div>
-    <!-- /Header -->
+	<!-- Intro -->
 
-    <!-- Intro -->
-    <br><br>
-    <div class="container d-flex bloc-plateform pl-0 mt-3">
-        <div class="col-4 notre-plateform">
-            <h2 class="thin text-right"><span class="font-65">Notre</span> <span class="font-55">Plateforme</span></h2>
-        </div>
-        <div class="col-8 descr-plateforme">
-            <p>
-                Nous sommes une communauté d'échanges et de prêts d'objet. le principe est de créer un groupe dont les
-                membres sont tous
-                amis afin de se pprêter des objets en toute confiance
-            </p>
-        </div>
-    </div>
-    <!-- /Intro-->
-
-
-    <!-- bloc recherche-->
-
-
-
-    <!-- /bloc recherche->
-
-    <!-- Bloc groupe -->
-
-    <div class="container d-flex border mt-5 group-container">
-        <div class="col-4 bloc-photo p-3"><img src="{{ asset('build/images/groupes-amis.jpg') }}"></div>
-        <div class="bloc-droite">
-            <div class="descrption-grp">
-                <div class="descrption-grp2 "> sommes un petit groupes sympa
-                    ici l'ambiance est conviviale on se connait depuis ….
-                    bla bla bla
-                </div>
-            </div>
-            <div class="d-flex objet-accueil">
-                <div class="col-6 photo-grpa text-center"><img
-                            src="{{ asset('build/images/decolleuse thermique.jpg') }}" alt=""></div>
-                <div class="descript-objeta"><h5>Décolleuse thermique</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt eaque fuga illum ipsa,
-                        laborum maxime .
-
-                    </p></div>
-            </div>
-        </div>
-    </div>
-
-    <!------------------- Bloc points forts------------->
+	<div class="container">
+		<div class="row presentation">
+			<div class="col-sm-4 notre-plateform">
+				<h2>Notre Plateforme</h2>
+				{# <h2 class=" text-right">
+					<span class="font-65">Notre</span>
+					<span class="font-55">Plateforme</span> #}
+				</h2>
+			</div>
+			<div class="col-sm-8 descr-plateforme">
+				<p>
+					Nous sommes une communauté d'échanges et de prêts d'objet. le principe est de créer un groupe dont les
+																																																																																					                membres sont tous
+																																																																																					                amis afin de se pprêter des objets en toute confiance
+				</p>
+			</div>
+		</div>
+	</div>
 
 
+	{# <div class="container d-flex border mt-5 group-container">
+													<div class="col-4 bloc-photo "><img class="img-thumbnail" src="{{ asset('build/images/groupes-amis.jpg') }}"></div>
+													<div class="bloc-droite">
+														<div class="descrption-grp">
+															<p class="descrption-grp2 ">sommes un petit groupes sympa. Ici l'ambiance est conviviale on se connait depuis.bla bla bla....</p>
+														</div>
+														<div class="d-flex objet-accueil">
+															<div class="col-6 photo-grpa text-center"><img class="img-thumbnail" src="{{ asset('build/images/decolleuse thermique.jpg') }}" alt=""></div>
+															<div class="descript-objeta">
+																<h5>Décolleuse thermique</h5>
+																<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt eaque fuga illum ipsa, laborum maxime .</p>
+															</div>
+														</div>
+													</div>
+												</div> #}
 
-    <div class="container d-flex text-center mt-5 mb-5 bloc-points">
-        <div class="card col-3 text-center border-0 color-card" style="width: 18rem;">
-            <div class="card-body pl-0  pr-0 bloc-card">
-                <div class=" bloc-icon" style="font-size: 4rem;">
-                    <div class="bloc-icon-in">
-                        <i class="fa fa-smile wh-i"></i>
-                    </div>
-                </div>
-                <div class="bloc-text">
-                    <h3 class="card-title">Ambiance</h3>
-                    <div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt
-                        molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
-                    </div>
-                </div>
-            </div>
-        </div>        <div class="card col-3 text-center border-0 color-card" style="width: 18rem;">
-            <div class="card-body pl-0  pr-0 bloc-card">
-                <div class=" bloc-icon" style="font-size: 4rem;">
-                    <div class="bloc-icon-in">
-                        <i class="fa fa-handshake"></i>
-                    </div>
-                </div>
-                <div class="bloc-text">
-                    <h3 class="card-title">Sécurité</h3>
-                    <div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt
-                        molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
-                    </div>
-                </div>
-            </div>
-        </div>        <div class="card col-3 text-center border-0 color-card" style="width: 18rem;">
-            <div class="card-body pl-0  pr-0 bloc-card">
-                <div class=" bloc-icon" style="font-size: 4rem;">
-                    <div class="bloc-icon-in">
-                        <i class="fa fa-users"></i>
-                    </div>
-                </div>
-                <div class="bloc-text">
-                    <h3 class="card-title">Amis </h3>
-                    <div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt
-                        molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
-                    </div>
-                </div>
-            </div>
-        </div>        <div class="card col-3 text-center border-0 color-card" style="width: 18rem;">
-            <div class="card-body pl-0  pr-0 bloc-card">
-                <div class=" bloc-icon" style="font-size: 4rem;">
-                    <div class="bloc-icon-in">
-                        <i class="fa fa-euro-sign"></i>
-                    </div>
-                </div>
-                <div class="bloc-text">
-                    <h3 class="card-title">Economies</h3>
-                    <div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt
-                        molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div class="container">
+		<div class="row border  activity" >
+			<div class="col-sm-4 bloc-left"><img class="img-thumbnail" src="{{ asset('build/images/groupes-amis.jpg') }}" alt="image objet acceuil">
+			</div>
+			<div class="col-sm-8 bloc-right">
+				<p>Un groupe très syma Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore pariatur non eaque cupiditate delectus necessitatibus veritatis cumque officia nam ab?</p>
+				<div class="row objet-accueil">
+					<div class="col-sm-6 bloc-img-accueil">
+						<img class="img-thumbnail" src="{{ asset('build/images/decolleuse thermique.jpg') }}" alt="image objet acceuil">
+					</div>
+					<div class="col-sm-6 descpt-objet-accueil">
+						<h5>Décoleuse thermique</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, a. Quos, est. Vero quasi laboriosam aspernatur voluptatum!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    </div>
-
-
-
-
-
+	<div class="container d-flex text-center mt-5 mb-5 bloc-points">
+		<div class="row">
+			<div class="card col-sm-3 text-center border-0 color-card" ">
+				<div class="card-body pl-0  pr-0 bloc-card">
+					<div class=" bloc-icon" style="font-size: 4rem;">
+						<div class="bloc-icon-in">
+							<i class="fa fa-smile wh-i"></i>
+						</div>
+					</div>
+					<div class="bloc-text">
+						<h3 class="card-title">Ambiance</h3>
+						<div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deseruntmolestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card col-sm-3 text-center border-0 color-card" ">
+				<div class="card-body pl-0  pr-0 bloc-card">
+					<div class=" bloc-icon" style="font-size: 4rem;">
+						<div class="bloc-icon-in">
+							<i class="fa fa-handshake"></i>
+						</div>
+					</div>
+					<div class="bloc-text">
+						<h3 class="card-title">Sécurité</h3>
+						<div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card col-sm-3 text-center border-0 color-card" ">
+				<div class="card-body pl-0  pr-0 bloc-card">
+					<div class=" bloc-icon" style="font-size: 4rem;">
+						<div class="bloc-icon-in">
+							<i class="fa fa-users"></i>
+						</div>
+					</div>
+					<div class="bloc-text">
+						<h3 class="card-title">Amis
+						</h3>
+						<div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserun molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card col-sm-3 text-center border-0 color-card" ">
+				<div class="card-body pl-0  pr-0 bloc-card">
+					<div class=" bloc-icon" style="font-size: 4rem;">
+						<div class="bloc-icon-in">
+							<i class="fa fa-euro-sign"></i>
+						</div>
+					</div>
+					<div class="bloc-text">
+						<h3 class="card-title">Economies</h3>
+						<div class=" font-perso">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt
+																																																																																																																		                        molestiae perferendis praesentium temporibus! Alias blanditiis deleniti eligendi
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
